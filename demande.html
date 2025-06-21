@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Demander un service - Kenfack Copywriting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Demande de service</h1>
+    <nav>
+      <a href="index.html">🏠 Retour à l'accueil</a>
+    </nav>
+  </header>
+  <main>
+    <form action="https://formspree.io/f/xgvylrky" method="POST">
+      <input type="hidden" name="_redirect" value="merci.html">
+      <label for="service">Choisissez un service :</label><br>
+      <select name="service" id="service" required>
+        <option value="">-- Sélectionnez --</option>
+        <option value="rédaction">✍️ Rédaction</option>
+        <option value="copywriting">📢 Copywriting</option>
+        <option value="cv">📄 Création de CV</option>
+        <option value="portfolio">🎨 Création de Portfolio</option>
+      </select><br><br>
+      <label for="description">Décrivez ce que vous voulez :</label><br>
+      <textarea id="description" name="description" rows="4" required></textarea><br><br>
+      <label for="nom">Nom :</label><br>
+      <input type="text" id="nom" name="nom" required><br><br>
+      <label for="email">Email :</label><br>
+      <input type="email" id="email" name="_replyto" required><br><br>
+      <label for="motdepasse">Mot de passe (si besoin) :</label><br>
+      <input type="password" id="motdepasse" name="motdepasse"><br><br>
+      <button type="submit">📨 Envoyer la demande</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2025 Kenfack Copywriting</p>
+  </footer>
+</body>
+</html>
