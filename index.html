@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kenfack Copywriting - Services professionnels</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Styles basiques pour le formulaire */
+    form label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      box-sizing: border-box;
+    }
+    form button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #e85c50;
+    }
+    .boutons-paiement button {
+      margin-right: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    .boutons-paiement button:hover {
+      background-color: #ff6f61;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="demande.html">Demander un service</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Des mots qui transforment vos idées en résultats</h1>
+      <p>Rédaction, copywriting, création de CV, portfolio — faites confiance à Kenfack Copywriting.</p>
+    </section>
+
+    <section class="services">
+      <h2>Nos Services</h2>
+      <ul>
+        <li>Rédaction de contenu</li>
+        <li>Copywriting</li>
+        <li>Création de CV</li>
+        <li>Création de portfolio</li>
+      </ul>
+    </section>
+
+    <section class="service-client">
+      <h2>Contact</h2>
+      <p>Contactez-nous au numéro Orange Money : <strong>658 60 54 90</strong></p>
+    </section>
+
+    <section class="paiement">
+      <h2>Paiement sécurisé</h2>
+      <p>Choisissez votre moyen de paiement mobile :</p>
+      <div class="boutons-paiement">
+        <button onclick="afficherInstructions('Orange Money')">Orange Money</button>
+        <button onclick="afficherInstructions('MTN Mobile Money')">MTN Mobile Money</button>
+        <button onclick="afficherInstructions('Neero')">Neero (Carte VISA)</button>
+      </div>
+
+      <div id="instructions-paiement" style="margin-top:1rem; padding:1rem; border:1px solid #ccc; display:none;">
+        <!-- Instructions s’afficheront ici -->
+      </div>
+    </section>
+
+    <section class="contact-form">
+      <h2>Contactez-moi directement</h2>
+      <form id="form-contact" onsubmit="return envoyerMessage(event)">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required />
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Envoyer</button>
+      </form>
+      <p id="confirmation" style="color:green; display:none;">Merci pour votre message, je vous réponds rapidement !</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Kenfack Copywriting. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    function afficherInstructions(service) {
+      const instructionsDiv = document.getElementById('instructions-paiement');
+      let instructions = '';
+      switch(service) {
+        case 'Orange Money':
+          instructions = `
+            <h3>Orange Money</h3>
+            <p>Envoyez le montant au numéro : <strong>+237 658 60 54 90</strong></p>
+            <p>Nom du bénéficiaire : Kenfack Sojas</p>
+            <p>Après paiement, envoyez la preuve à <a href="mailto:kenfacksojas@gmail.com">kenfacksojas@gmail.com</a></p>
+          `;
+          break;
+        case 'MTN Mobile Money':
+          instructions = `
+            <h3>MTN Mobile Money</h3>
+            <p>Envoyez le montant au numéro : <strong>+237 675 48 72 56</strong></p>
+            <p>Nom du bénéficiaire : Kenfack Sojas</p>
+            <p>Après paiement, envoyez la preuve à <a href="mailto:kenfacksojas@gmail.com">kenfacksojas@gmail.com</a></p>
+          `;
+          break;
+        case 'Neero':
+          instructions = `
+            <h3>Neero - Carte VISA</h3>
+            <p>Effectuez votre paiement par carte VISA :</p>
+            <p><strong>4834 5600 6145 0216</strong></p>
+            <p>Nom du bénéficiaire : Kenfack Sojas</p>
+            <p>Après paiement, envoyez la preuve à <a href="mailto:kenfacksojas@gmail.com">kenfacksojas@gmail.com</a></p>
+          `;
+          break;
+      }
+      instructionsDiv.innerHTML = instructions;
+      instructionsDiv.style.display = 'block';
+    }
+
+    function envoyerMessage(event) {
+      event.preventDefault();
+      const nom = document.getElementById('nom').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if(!nom || !email || !message) {
+        alert('Veuillez remplir tous les champs.');
+        return false;
+      }
+
+      // Ici, envoi réel du message non implémenté (nécessite backend ou service tiers)
+
+      document.getElementById('confirmation').style.display = 'block';
+      document.getElementById('form-contact').reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
