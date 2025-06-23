@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kenfack30.github.io/kenfack-services/sitemap.xml
